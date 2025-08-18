@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Szymon Smoła – Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #0d0d0d;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+        }
+
+        p,
+        .skill,
+        .project-card p {
+            font-weight: 300;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            color: #aaa;
+            z-index: 2;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .experience .timeline {
+            border-left: 2px solid #444;
+            padding-left: 20px;
+        }
+
+        .experience .item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .experience .item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .experience .item p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #1a1a1a;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform .3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            display: inline-block;
+            margin: 10px;
+            color: #f5f5f5;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 1px solid #f5f5f5;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all .3s;
+        }
+
+        .contact a:hover {
+            background: #f5f5f5;
+            color: #0d0d0d;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="particles-js"></div>
+        <h1>Szymon Smoła</h1>
+        <p>Student Elektroniki i Telekomunikacji | Game Developer @ AGH Code Industry</p>
+    </header>
+    <section class="about reveal">
+        <h2>Kim jestem</h2>
+        <p>Jestem studentem Elektroniki i Telekomunikacji z doświadczeniem w konfiguracji sieci (<em>Cisco,
+                Jupiter</em>),
+            tworzeniu gier, programowaniu (<em>C, C++, C#</em>), pracy z Linuxem i technologiami front-end (<em>HTML,
+                CSS</em>). Znam
+            narzędzia takie jak <em>Unity, Git, Docker, MATLAB, AutoCAD i REDkit</em>. Pasjonuję się motoryzacją,
+            sportem i grami
+            komputerowymi.</p>
+    </section>
+    <section class="experience reveal">
+        <h2>Doświadczenie</h2>
+        <div class="timeline">
+            <div class="item">
+                <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
+                <p>2024 – obecnie | Praca nad grą <em>Emperor</em>, Game Design, Game Development, Unity. Nauka REDkit w
+                    ramach
+                    zespołu Digitsy.</p>
+            </div>
+            <div class="item">
+                <h3><i class="fa-solid fa-network-wired"></i> Praktykant IT – ASCOMP S.A.</h3>
+                <p>2023 – 2024 | Projektowanie i konfiguracja sieci, praca z kontenerami <em>Docker</em> i monitoring
+                    systemów.</p>
+            </div>
+            <div class="item">
+                <h3><i class="fa-solid fa-life-ring"></i> Ratownik Wodny – Basen AGH / WOPR Zamość</h3>
+                <p>2021 – 2023 | Bezpieczeństwo w wodzie, obsługa AED, pierwsza pomoc, praca zespołowa.</p>
+            </div>
+        </div>
+    </section>
+    <section class="skills reveal">
+        <h2>Umiejętności</h2>
+        <div class="skills">
+            <div class="skill"><i class="fa-solid fa-wifi"></i> <em>Sieci przewodowe i bezprzewodowe</em>
+                (projektowanie)</div>
+            <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
+            <div class="skill"><i class="fa-brands fa-docker"></i> Docker</div>
+            <div class="skill"><i class="fa-brands fa-linux"></i> Linux</div>
+            <div class="skill"><i class="fa-brands fa-unity"></i> Unity</div>
+            <div class="skill"><i class="fa-solid fa-code"></i> C++</div>
+            <div class="skill"><i class="fa-solid fa-code"></i> C#</div>
+            <div class="skill"><i class="fa-solid fa-wand-magic-sparkles"></i> REDkit</div>
+            <div class="skill"><i class="fa-solid fa-drafting-compass"></i> AutoCAD</div>
+            <div class="skill"><i class="fa-solid fa-square-root-variable"></i> MATLAB</div>
+        </div>
+    </section>
+    <section class="projects reveal">
+        <h2>Projekty</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3><i class="fa-solid fa-diagram-project"></i> Analiza load balancingu w P4 (Praca Inżynierska w
+                    trakcie)</h3>
+                <p>Symulacja i badanie ruchu w <em>programowalnych przełącznikach</em>.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fa-solid fa-server"></i> ELK Stack</h3>
+                <p>Zbieranie i parsowanie logów z <em>urządzeń sieciowych</em>.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fa-solid fa-dragon"></i> Mod do Wiedźmina 3</h3>
+                <p>Rozszerzenie świata gry o nowe <em>elementy i mechaniki</em>.</p>
+            </div>
+            <div class="project-card">
+                <h3><i class="fa-solid fa-laptop-code"></i> Projekty akademickie i osobiste</h3>
+                <p> <b>Języki programowania obiektowego:</b> Projekt bufora okrężnego w <em>C++</em><br>
+                    <b>Design lab:</b> Sprzęgacz kierunkowy w topologii pierścieniowej<br>
+                    <b>Mikroprocesory 2:</b> System zamka z enkoderem obrotowym w <em>C</em><br>
+                    <b>Mikroprocesory 1:</b> Odbiornik kodu Morse’a w <em>C++</em>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="contact reveal">
+        <h2>Kontakt</h2>
+        <a href="mailto:szymeksmola@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/szymonsmola/" target="_blank"><i class="fa-brands fa-linkedin"></i>
+            LinkedIn</a>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80 },
+                "size": { "value": 3 },
+                "move": { "speed": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff" },
+                "color": { "value": "#ffffff" }
+            }
+        });
+
+        function reveal() {
+            let reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                let elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+
+</html>
