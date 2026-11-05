@@ -4,39 +4,127 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmolaS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+    <title>Szymon Smoła | Network & Security Engineer</title>
+    <meta name="description" content="Portfolio Szymona Smoły – Inżyniera Elektroniki i Telekomunikacji, Studenta Teleinformatyki AGH oraz Junior Network & Security Engineera." />
+    
+    <!-- Open Graph (ładny podgląd linku na LinkedIn / Messengerze) -->
+    <meta property="og:title" content="Szymon Smoła | Network & Security Engineer" />
+    <meta property="og:description" content="Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer" />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
+        :root {
+            --bg-main: #0a0c10;
+            --bg-card: rgba(22, 27, 34, 0.75);
+            --bg-card-hover: rgba(30, 37, 48, 0.95);
+            --accent: #00d2ff;
+            --accent-secondary: #3a7bd5;
+            --accent-glow: rgba(0, 210, 255, 0.18);
+            --text-main: #f0f6fc;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Raleway', sans-serif;
-            background: #0d0d0d;
-            color: #f5f5f5;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1,
-        h2,
-        h3 {
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Pasek przewijania */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262c36;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        h1, h2, h3 {
             font-weight: 700;
         }
 
-        p,
-        .skill,
-        .project-card p {
+        p {
             font-weight: 300;
         }
 
         em {
-            font-style: italic;
+            font-style: normal;
+            color: var(--accent);
+            font-weight: 400;
         }
 
+        /* Nawigacja */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 12, 16, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover {
+            color: var(--accent);
+        }
+
+        /* Header / Hero */
         header {
             height: 100vh;
             display: flex;
@@ -45,21 +133,8 @@
             justify-content: center;
             position: relative;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            z-index: 2;
-            position: relative;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            margin-top: 10px;
-            color: #aaa;
-            z-index: 2;
-            position: relative;
-            max-width: 800px;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.06) 0%, transparent 70%);
         }
 
         #particles-js {
@@ -71,247 +146,673 @@
             z-index: 1;
         }
 
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ffffff, #b0c4de);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: #0a0c10;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 210, 255, 0.45);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            z-index: 2;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            animation: bounce 2s infinite;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .scroll-down:hover {
+            color: var(--accent);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Sekcje ogólne */
         section {
-            padding: 80px 10%;
-            max-width: 1200px;
+            padding: 100px 10%;
+            max-width: 1150px;
             margin: auto;
         }
 
         section h2 {
             font-size: 2.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-align: center;
-        }
-
-        .about {
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .about p {
-            margin-bottom: 15px;
-        }
-
-        .experience .timeline {
-            border-left: 2px solid #444;
-            padding-left: 20px;
-        }
-
-        .experience .item {
-            margin-bottom: 30px;
             position: relative;
         }
 
-        .experience .item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            margin: 12px auto 0;
+            border-radius: 2px;
         }
 
-        .experience .item p {
+        /* O mnie */
+        .about-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 40px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-box p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: #d1d5db;
+        }
+
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Doświadczenie / Timeline */
+        .timeline {
+            border-left: 2px solid rgba(0, 210, 255, 0.3);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline .item {
+            margin-bottom: 35px;
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px 28px;
+            border-radius: 12px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline .item:hover {
+            transform: translateX(6px);
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Kropka na osi czasu */
+        .timeline .item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 28px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .timeline .item h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline .item h3 i {
+            color: var(--accent);
+        }
+
+        .timeline .date-badge {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: rgba(0, 210, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .timeline .item p {
             font-size: 1rem;
-            color: #ccc;
+            color: var(--text-muted);
         }
 
-        .skills {
+        /* Umiejętności */
+        .skills-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 14px;
         }
 
         .skill {
-            background: #1a1a1a;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-size: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-size: 0.98rem;
+            font-weight: 400;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: transform .3s;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill i {
+            color: var(--accent);
+            font-size: 1.15rem;
         }
 
         .skill:hover {
             transform: translateY(-5px);
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            box-shadow: 0 6px 20px var(--accent-glow);
         }
 
-        .projects {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        /* Projekty */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .project-card {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            transition: transform .3s, box-shadow .3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 210, 255, 0.45);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px var(--accent-glow);
         }
 
         .project-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        .project-card h3 i {
+            color: var(--accent);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 20px;
+        }
+
+        .project-list {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .project-list li {
+            margin-bottom: 8px;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .project-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .project-list b {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        /* Kontakt */
         .contact {
             text-align: center;
         }
 
+        .contact p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
         .contact a {
-            display: inline-block;
-            margin: 10px;
-            color: #f5f5f5;
-            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            border: 1px solid #f5f5f5;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all .3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact a i {
+            color: var(--accent);
+            font-size: 1.25rem;
+            transition: color 0.3s;
         }
 
         .contact a:hover {
-            background: #f5f5f5;
-            color: #0d0d0d;
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #0a0c10;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--accent-glow);
         }
 
+        .contact a:hover i {
+            color: #0a0c10;
+        }
+
+        /* Stopka */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animacja pojawiania się */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            nav {
+                padding: 14px 6%;
+            }
+            nav ul {
+                display: none;
+            }
+            section {
+                padding: 75px 6%;
+            }
+            .about-box {
+                padding: 25px;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline .item::before {
+                left: -29px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <nav>
+        <a href="#" class="logo">Smola<span>S</span></a>
+        <ul>
+            <li><a href="#about">O mnie</a></li>
+            <li><a href="#experience">Doświadczenie</a></li>
+            <li><a href="#skills">Umiejętności</a></li>
+            <li><a href="#projects">Projekty</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
     <header>
         <div id="particles-js"></div>
-        <h1>Szymon Smoła</h1>
-        <p>Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer</p>
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Network & Security</span>
+            <h1>Szymon Smoła</h1>
+            <p>Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code-branch"></i> Zobacz projekty</a>
+                <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Kontakt</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down" aria-label="Przewiń w dół">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </header>
 
-    <section class="about reveal">
-        <h2>Kim jestem</h2>
-        <p>Jestem inżynierem Elektroniki i Telekomunikacji, studentem II stopnia na kierunku Teleinformatyka, a zawodowo rozwijam się jako <strong>Junior Network & Security Engineer</strong>. Moje główne obszary specjalizacji to nowoczesne sieci komputerowe oraz cyberbezpieczeństwo.</p>
-        
-        <p>Posiadam doświadczenie w konfiguracji i administracji sprzętem sieciowym (<em>Cisco, Juniper</em>) oraz w pracy z programowalnymi płaszczyznami danych (<em>P4</em>). Znam system <em>Linux</em> oraz środowiska związane z wirtualizacją i konteneryzacją (m.in. <em>Docker</em>). Aktywnie poszerzam swoje kompetencje w obszarze bezpieczeństwa IT – zajmuję się oceną podatności (<em>Qualys</em>) oraz pracuję z rozwiązaniami takimi jak <em>FortiEDR</em> czy ekosystem <em>Palo Alto Networks</em>.</p>
-        
-        <p>Moje zaplecze techniczne uzupełnia znajomość systemu kontroli wersji <em>Git</em>, podstawowa znajomość języków <em>C, C++</em> oraz <em>Python</em>, a także wcześniejsze doświadczenia z elektroniką i tworzeniem gier w silniku <em>Unity</em>.</p>
-        
-        <p>Biegle posługuję się językiem angielskim. Bardzo dobrze odnajduję się w pracy zespołowej, również w dynamicznym środowisku międzynarodowym.</p>
-        
-        <p>Prywatnie interesuję się nowoczesnymi technologiami sieciowymi, motoryzacją, sportem oraz grami komputerowymi. W wolnym czasie chętnie pływam, oglądam filmy i spędzam czas z przyjaciółmi.</p>
-    </section>
+    <main>
+        <section id="about" class="reveal">
+            <h2>Kim jestem</h2>
+            <div class="about-box">
+                <p>Jestem inżynierem Elektroniki i Telekomunikacji, studentem II stopnia na kierunku Teleinformatyka w AGH, a zawodowo rozwijam się jako <strong>Junior Network & Security Engineer</strong>. Moje główne obszary specjalizacji to nowoczesne sieci komputerowe oraz cyberbezpieczeństwo.</p>
+                
+                <p>Posiadam doświadczenie w konfiguracji i administracji sprzętem sieciowym (<em>Cisco, Juniper</em>) oraz w pracy z programowalnymi płaszczyznami danych (<em>P4</em>). Znam system <em>Linux</em> oraz środowiska związane z wirtualizacją i konteneryzacją (m.in. <em>Docker</em>). Aktywnie poszerzam swoje kompetencje w obszarze bezpieczeństwa IT – zajmuję się oceną podatności (<em>Qualys</em>) oraz pracuję z rozwiązaniami klasy EDR/XDR i NGFW, takimi jak <em>CrowdStrike</em>, <em>FortiEDR</em> czy ekosystem <em>Palo Alto Networks</em>.</p>
+                
+                <p>Moje zaplecze techniczne uzupełnia znajomość systemu kontroli wersji <em>Git</em>, podstawowa znajomość języków <em>C, C++</em> oraz <em>Python</em>, a także wcześniejsze doświadczenia z elektroniką i tworzeniem gier w silniku <em>Unity</em>.</p>
+                
+                <p>Biegle posługuję się językiem angielskim. Bardzo dobrze odnajduję się w pracy zespołowej, również w dynamicznym środowisku międzynarodowym.</p>
+                
+                <p>Prywatnie interesuję się nowoczesnymi technologiami sieciowymi, motoryzacją, sportem oraz grami komputerowymi. W wolnym czasie chętnie pływam, oglądam filmy i spędzam czas z przyjaciółmi.</p>
+            </div>
+        </section>
 
-    <section class="experience reveal">
-        <h2>Doświadczenie</h2>
-        <div class="timeline">
-            <div class="item">
-                <h3><i class="fa-solid fa-shield-halved"></i> Junior Network & Security Engineer</h3>
-                <p>2026 – Obecnie | Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. Palo Alto Networks, Qualys, FortiEDR).</p>
-            </div>
-            <div class="item">
-                <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
-                <p>2024 – obecnie | Praca nad grą <em>Emperor</em>, Game Design, Game Development, Unity. Nauka REDkit w ramach zespołu Digitsy.</p>
-            </div>
-            <div class="item">
-                <h3><i class="fa-solid fa-network-wired"></i> Praktykant IT – ASCOMP S.A.</h3>
-                <p>2025 | Projektowanie i konfiguracja sieci, praca z kontenerami <em>Docker</em> i monitoring systemów.</p>
-            </div>
-            <div class="item">
-                <h3><i class="fa-solid fa-life-ring"></i> Ratownik Wodny – Basen AGH / WOPR Zamość</h3>
-                <p>2021 – 2026 | Bezpieczeństwo w wodzie, obsługa AED, pierwsza pomoc, praca zespołowa.</p>
-            </div>
-        </div>
-    </section>
+        <section id="experience" class="experience reveal">
+            <h2>Doświadczenie</h2>
+            <div class="timeline">
+                <div class="item">
+                    <div class="item-header">
+                        <h3><i class="fa-solid fa-shield-halved"></i> Junior Network & Security Engineer</h3>
+                        <span class="date-badge">2026 – obecnie</span>
+                    </div>
+                    <p>Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. <em>Palo Alto Networks, CrowdStrike, Qualys, FortiEDR</em>).</p>
+                </div>
 
-    <section class="skills reveal">
-        <h2>Umiejętności</h2>
-        <div class="skills">
-            <div class="skill"><i class="fa-solid fa-network-wired"></i> Sieci komputerowe (Cisco, Juniper)</div>
-            <div class="skill"><i class="fa-solid fa-lock"></i> Palo Alto Networks/Fortinet</div>
-            <div class="skill"><i class="fa-solid fa-magnifying-glass-chart"></i> Qualys</div>
-            <div class="skill"><i class="fa-solid fa-shield-virus"></i> FortiEDR</div>
-            <div class="skill"><i class="fa-brands fa-linux"></i> Linux</div>
-            <div class="skill"><i class="fa-brands fa-docker"></i> Wirtualizacja & Docker</div>
-            <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
-            <div class="skill"><i class="fa-brands fa-python"></i> Python</div>
-            <div class="skill"><i class="fa-solid fa-code"></i> C / C++</div>
-            <div class="skill"><i class="fa-solid fa-microchip"></i> P4</div>
-            <div class="skill"><i class="fa-brands fa-unity"></i> Unity</div>
-        </div>
-    </section>
+                <div class="item">
+                    <div class="item-header">
+                        <h3><i class="fa-solid fa-network-wired"></i> Praktykant IT – ASCOMP S.A.</h3>
+                        <span class="date-badge">2025</span>
+                    </div>
+                    <p>Projektowanie i konfiguracja sieci, praca z kontenerami <em>Docker</em> oraz wdrażanie i utrzymanie systemów monitoringu.</p>
+                </div>
 
-    <section class="projects reveal">
-        <h2>Projekty</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3><i class="fa-solid fa-diagram-project"></i> Praca inżynierska: Load Balancing w P4</h3>
-                <p>Projekt i implementacja algorytmów load balancingu w P4. Środowisko testowe oparte na <em>BMv2, Mininet i Docker</em>. Analiza wydajności pod kątem przepustowości, opóźnień i zmiany kolejności pakietów.</p>
-            </div>
-            <div class="project-card">
-                <h3><i class="fa-solid fa-server"></i> ELK Stack</h3>
-                <p>Zbieranie i parsowanie logów z <em>urządzeń sieciowych</em>.</p>
-            </div>
-            <div class="project-card">
-                <h3><i class="fa-solid fa-dragon"></i> Mod do Wiedźmina 3</h3>
-                <p>Rozszerzenie świata gry o nowe <em>elementy i mechaniki</em>.</p>
-            </div>
-            <div class="project-card">
-                <h3><i class="fa-solid fa-laptop-code"></i> Projekty akademickie i osobiste</h3>
-                <p> <b>Języki programowania obiektowego:</b> Projekt bufora okrężnego w <em>C++</em><br>
-                    <b>Design lab:</b> Sprzęgacz kierunkowy w topologii pierścieniowej<br>
-                    <b>Mikroprocesory 2:</b> System zamka z enkoderem obrotowym w <em>C</em><br>
-                    <b>Mikroprocesory 1:</b> Odbiornik kodu Morse’a w <em>C++</em>
-                </p>
-            </div>
-        </div>
-    </section>
+                <div class="item">
+                    <div class="item-header">
+                        <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
+                        <span class="date-badge">2024 – obecnie</span>
+                    </div>
+                    <p>Praca nad grą <em>Emperor</em>, Game Design, Game Development w silniku <em>Unity</em>. Rozwój modyfikacji w narzędziu REDkit w ramach zespołu Digitsy.</p>
+                </div>
 
-    <section class="contact reveal">
-        <h2>Kontakt</h2>
-        <a href="mailto:szymeksmola@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a href="https://www.linkedin.com/in/szymonsmola/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    </section>
+                <div class="item">
+                    <div class="item-header">
+                        <h3><i class="fa-solid fa-life-ring"></i> Ratownik Wodny – Basen AGH / WOPR Zamość</h3>
+                        <span class="date-badge">2021 – 2026</span>
+                    </div>
+                    <p>Odpowiedzialność za bezpieczeństwo w wodzie, obsługa AED, kwalifikowana pierwsza pomoc oraz ścisła praca zespołowa w sytuacjach kryzysowych.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <h2>Umiejętności</h2>
+            <div class="skills-grid">
+                <div class="skill"><i class="fa-solid fa-network-wired"></i> Sieci komputerowe (Cisco, Juniper)</div>
+                <div class="skill"><i class="fa-solid fa-lock"></i> Palo Alto Networks / Fortinet</div>
+                <div class="skill"><i class="fa-solid fa-user-shield"></i> CrowdStrike</div>
+                <div class="skill"><i class="fa-solid fa-shield-virus"></i> FortiEDR</div>
+                <div class="skill"><i class="fa-solid fa-magnifying-glass-chart"></i> Qualys</div>
+                <div class="skill"><i class="fa-brands fa-linux"></i> Linux</div>
+                <div class="skill"><i class="fa-brands fa-docker"></i> Wirtualizacja & Docker</div>
+                <div class="skill"><i class="fa-solid fa-microchip"></i> P4 (Programmable Data Planes)</div>
+                <div class="skill"><i class="fa-brands fa-python"></i> Python</div>
+                <div class="skill"><i class="fa-solid fa-code"></i> C / C++</div>
+                <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
+                <div class="skill"><i class="fa-brands fa-unity"></i> Unity</div>
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <h2>Projekty</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div>
+                        <h3><i class="fa-solid fa-diagram-project"></i> Load Balancing w P4</h3>
+                        <p>Praca inżynierska obejmująca projekt i implementację algorytmów równoważenia obciążenia w programowalnej płaszczyźnie danych. Analiza wydajności pod kątem przepustowości, opóźnień i zmiany kolejności pakietów.</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">P4</span>
+                        <span class="tag">BMv2</span>
+                        <span class="tag">Mininet</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3><i class="fa-solid fa-server"></i> Centralizacja logów – ELK Stack</h3>
+                        <p>Wdrożenie środowiska do zbierania, parsowania oraz wizualizacji logów i zdarzeń z <em>urządzeń sieciowych</em> w czasie rzeczywistym.</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Elasticsearch</span>
+                        <span class="tag">Logstash</span>
+                        <span class="tag">Kibana</span>
+                        <span class="tag">Syslog</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3><i class="fa-solid fa-dragon"></i> Modyfikacja do Wiedźmina 3</h3>
+                        <p>Projekt zespołowy rozszerzający świat gry o nowe <em>elementy fabularne i mechaniki rozgrywki</em> z wykorzystaniem oficjalnego edytora REDkit.</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">REDkit</span>
+                        <span class="tag">Game Design</span>
+                        <span class="tag">Teamwork</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3><i class="fa-solid fa-laptop-code"></i> Projekty akademickie i sprzętowe</h3>
+                        <ul class="project-list">
+                            <li><b>Programowanie obiektowe:</b> Biblioteka bufora okrężnego w <em>C++</em></li>
+                            <li><b>Design Lab:</b> Sprzęgacz kierunkowy w topologii pierścieniowej</li>
+                            <li><b>Mikroprocesory 2:</b> System zamka z enkoderem obrotowym w <em>C</em></li>
+                            <li><b>Mikroprocesory 1:</b> Dekoder i odbiornik kodu Morse’a w <em>C++</em></li>
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">C</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Embedded</span>
+                        <span class="tag">RF / Elektronika</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact reveal">
+            <h2>Kontakt</h2>
+            <p>Masz pytanie lub propozycję współpracy? Napisz do mnie!</p>
+            <div class="contact-links">
+                <a href="mailto:szymeksmola@gmail.com">
+                    <i class="fa-solid fa-envelope"></i> szymeksmola@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/szymonsmola/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/SmolaS" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Szymon Smoła. Wszystkie prawa zastrzeżone.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
+        // Aktualny rok w stopce
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Konfiguracja Particles.js (motyw sieciowy)
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80 },
-                "size": { "value": 3 },
-                "move": { "speed": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff" },
-                "color": { "value": "#ffffff" }
-            }
+                "number": { "value": 65, "density": { "enable": true, "value_area": 900 } },
+                "color": { "value": "#00d2ff" },
+                "opacity": { "value": 0.4, "random": true },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00d2ff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 160, "line_linked": { "opacity": 0.6 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
         });
 
-        function reveal() {
-            let reveals = document.querySelectorAll(".reveal");
-            for (let i = 0; i < reveals.length; i++) {
-                let windowHeight = window.innerHeight;
-                let elementTop = reveals[i].getBoundingClientRect().top;
-                let elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // Płynne odkrywanie sekcji przy przewijaniu (IntersectionObserver)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
                 }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     </script>
 </body>
 
