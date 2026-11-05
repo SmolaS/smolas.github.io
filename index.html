@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Szymon Smoła | Network & Security Engineer</title>
-    <meta name="description" content="Portfolio Szymona Smoły – Inżyniera Elektroniki i Telekomunikacji, Studenta Teleinformatyki AGH oraz Junior Network & Security Engineera." />
+    <meta name="description" content="Portfolio Szymona Smoły – Inżyniera Elektroniki i Telekomunikacji, Studenta Teleinformatyki AGH oraz Junior Network & Security Engineera w ASCOMP S.A." />
     
     <!-- Open Graph (ładny podgląd linku na LinkedIn / Messengerze) -->
     <meta property="og:title" content="Szymon Smoła | Network & Security Engineer" />
-    <meta property="og:description" content="Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer" />
+    <meta property="og:description" content="Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer @ ASCOMP S.A." />
     <meta property="og:type" content="website" />
 
     <!-- Fonts & Icons -->
@@ -20,12 +20,19 @@
 
     <style>
         :root {
-            --bg-main: #0a0c10;
-            --bg-card: rgba(22, 27, 34, 0.75);
-            --bg-card-hover: rgba(30, 37, 48, 0.95);
-            --accent: #00d2ff;
-            --accent-secondary: #3a7bd5;
-            --accent-glow: rgba(0, 210, 255, 0.18);
+            --bg-main: #090b10;
+            --bg-card: rgba(18, 22, 31, 0.8);
+            --bg-card-hover: rgba(25, 31, 44, 0.95);
+            
+            /* Kolory Red Team & Blue Team */
+            --blue-team: #00d2ff;
+            --blue-dark: #2563eb;
+            --red-team: #ff2a5f;
+            --red-dark: #e11d48;
+            
+            --blue-glow: rgba(0, 210, 255, 0.18);
+            --red-glow: rgba(255, 42, 95, 0.18);
+            
             --text-main: #f0f6fc;
             --text-muted: #9ca3af;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -44,6 +51,10 @@
         body {
             font-family: 'Raleway', sans-serif;
             background: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 42, 95, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
@@ -57,11 +68,8 @@
             background: var(--bg-main);
         }
         ::-webkit-scrollbar-thumb {
-            background: #262c36;
+            background: linear-gradient(180deg, var(--blue-team), var(--red-team));
             border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
         }
 
         h1, h2, h3 {
@@ -74,8 +82,12 @@
 
         em {
             font-style: normal;
-            color: var(--accent);
+            color: var(--blue-team);
             font-weight: 400;
+        }
+
+        em.red {
+            color: var(--red-team);
         }
 
         /* Nawigacja */
@@ -83,11 +95,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 16px 10%;
+            padding: 16px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 12, 16, 0.8);
+            background: rgba(9, 11, 16, 0.82);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
@@ -96,14 +108,18 @@
 
         nav .logo {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--text-main);
             text-decoration: none;
             letter-spacing: 1px;
         }
 
-        nav .logo span {
-            color: var(--accent);
+        nav .logo .blue {
+            color: var(--blue-team);
+        }
+
+        nav .logo .red {
+            color: var(--red-team);
         }
 
         nav ul {
@@ -121,7 +137,7 @@
         }
 
         nav ul a:hover {
-            color: var(--accent);
+            color: var(--blue-team);
         }
 
         /* Header / Hero */
@@ -134,7 +150,9 @@
             position: relative;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.06) 0%, transparent 70%);
+            background: 
+                radial-gradient(circle at 35% 45%, rgba(0, 210, 255, 0.08) 0%, transparent 55%),
+                radial-gradient(circle at 65% 55%, rgba(255, 42, 95, 0.08) 0%, transparent 55%);
         }
 
         #particles-js {
@@ -149,16 +167,18 @@
         .hero-content {
             z-index: 2;
             position: relative;
-            max-width: 850px;
+            max-width: 900px;
         }
 
         .hero-badge {
-            display: inline-block;
-            padding: 6px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
             border-radius: 20px;
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            color: var(--accent);
+            background: linear-gradient(90deg, rgba(0, 210, 255, 0.12), rgba(255, 42, 95, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 20px;
@@ -166,30 +186,52 @@
             text-transform: uppercase;
         }
 
+        .hero-badge i.fa-network-wired {
+            color: var(--blue-team);
+        }
+
+        .hero-badge i.fa-shield-halved {
+            color: var(--red-team);
+        }
+
         header h1 {
-            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-size: clamp(2.6rem, 6vw, 4.4rem);
             letter-spacing: -0.5px;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #ffffff, #b0c4de);
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #ffffff 0%, #dbeafe 50%, #ffe4e6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+        header .subtitle {
+            font-size: clamp(1.05rem, 2.3vw, 1.28rem);
             color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        header .role {
+            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+            color: var(--text-main);
+            font-weight: 600;
             margin-bottom: 35px;
+        }
+
+        header .role .company {
+            background: linear-gradient(90deg, var(--blue-team), var(--red-team));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 26px;
+            padding: 13px 28px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
@@ -197,30 +239,40 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            color: #0a0c10;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.25);
+            background: linear-gradient(135deg, var(--blue-team), var(--blue-dark));
+            color: #090b10;
+            box-shadow: 0 4px 18px rgba(0, 210, 255, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 210, 255, 0.45);
+            box-shadow: 0 6px 25px rgba(0, 210, 255, 0.5);
         }
 
         .btn-outline {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 42, 95, 0.08);
             color: var(--text-main);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 42, 95, 0.4);
+        }
+
+        .btn-outline i {
+            color: var(--red-team);
         }
 
         .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            background: var(--red-team);
+            border-color: var(--red-team);
+            color: #ffffff;
             transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 42, 95, 0.4);
+        }
+
+        .btn-outline:hover i {
+            color: #ffffff;
         }
 
         .scroll-down {
@@ -235,7 +287,7 @@
         }
 
         .scroll-down:hover {
-            color: var(--accent);
+            color: var(--blue-team);
         }
 
         @keyframes bounce {
@@ -244,10 +296,10 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* Sekcje ogólne */
+        /* Sekcje ogólne - poszerzone dla symetrii */
         section {
-            padding: 100px 10%;
-            max-width: 1150px;
+            padding: 100px 6%;
+            max-width: 1240px;
             margin: auto;
         }
 
@@ -261,9 +313,9 @@
         section h2::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 70px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--blue-team), var(--red-team));
             margin: 12px auto 0;
             border-radius: 2px;
         }
@@ -273,9 +325,21 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 35px 40px;
+            padding: 40px 45px;
             backdrop-filter: blur(8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-team), var(--red-team));
         }
 
         .about-box p {
@@ -290,18 +354,19 @@
 
         /* Doświadczenie / Timeline */
         .timeline {
-            border-left: 2px solid rgba(0, 210, 255, 0.3);
-            padding-left: 30px;
+            border-left: 2px solid;
+            border-image: linear-gradient(to bottom, var(--blue-team), var(--red-team)) 1;
+            padding-left: 32px;
             margin-left: 10px;
         }
 
         .timeline .item {
-            margin-bottom: 35px;
+            margin-bottom: 28px;
             position: relative;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 24px 28px;
-            border-radius: 12px;
+            padding: 26px 32px;
+            border-radius: 14px;
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
@@ -309,33 +374,45 @@
             margin-bottom: 0;
         }
 
-        .timeline .item:hover {
+        .timeline .item:nth-child(odd):hover {
             transform: translateX(6px);
-            border-color: rgba(0, 210, 255, 0.4);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 210, 255, 0.45);
+            box-shadow: 0 8px 25px var(--blue-glow);
         }
 
-        /* Kropka na osi czasu */
+        .timeline .item:nth-child(even):hover {
+            transform: translateX(6px);
+            border-color: rgba(255, 42, 95, 0.45);
+            box-shadow: 0 8px 25px var(--red-glow);
+        }
+
+        /* Kropka na osi czasu (naprzemiennie Blue / Red) */
         .timeline .item::before {
             content: '';
             position: absolute;
-            left: -39px;
-            top: 28px;
+            left: -41px;
+            top: 30px;
             width: 14px;
             height: 14px;
             border-radius: 50%;
             background: var(--bg-main);
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 10px var(--accent);
+            border: 3px solid var(--blue-team);
+            box-shadow: 0 0 10px var(--blue-team);
         }
 
+        .timeline .item:nth-child(even)::before {
+            border-color: var(--red-team);
+            box-shadow: 0 0 10px var(--red-team);
+        }
+
+        /* Naprawiony nagłówek elementu osi czasu (brak rozjazdu!) */
         .timeline .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 10px;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 20px;
+            margin-bottom: 12px;
         }
 
         .timeline .item h3 {
@@ -343,21 +420,33 @@
             color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .timeline .item h3 i {
-            color: var(--accent);
+        .timeline .item:nth-child(odd) h3 i {
+            color: var(--blue-team);
+        }
+
+        .timeline .item:nth-child(even) h3 i {
+            color: var(--red-team);
         }
 
         .timeline .date-badge {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--blue-team);
             background: rgba(0, 210, 255, 0.1);
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 210, 255, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .timeline .item:nth-child(even) .date-badge {
+            color: var(--red-team);
+            background: rgba(255, 42, 95, 0.1);
+            border-color: rgba(255, 42, 95, 0.25);
         }
 
         .timeline .item p {
@@ -376,7 +465,7 @@
         .skill {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 13px 20px;
+            padding: 13px 22px;
             border-radius: 10px;
             font-size: 0.98rem;
             font-weight: 400;
@@ -387,78 +476,126 @@
             cursor: default;
         }
 
-        .skill i {
-            color: var(--accent);
+        .skill:nth-child(odd) i {
+            color: var(--blue-team);
             font-size: 1.15rem;
         }
 
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            background: var(--bg-card-hover);
-            box-shadow: 0 6px 20px var(--accent-glow);
+        .skill:nth-child(even) i {
+            color: var(--red-team);
+            font-size: 1.15rem;
         }
 
-        /* Projekty */
+        .skill:nth-child(odd):hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-team);
+            background: var(--bg-card-hover);
+            box-shadow: 0 6px 20px var(--blue-glow);
+        }
+
+        .skill:nth-child(even):hover {
+            transform: translateY(-5px);
+            border-color: var(--red-team);
+            background: var(--bg-card-hover);
+            box-shadow: 0 6px 20px var(--red-glow);
+        }
+
+        /* Projekty akademickie - symetryczna siatka 2x2 */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            align-items: stretch;
         }
 
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 28px;
-            border-radius: 14px;
+            padding: 32px 34px;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pasek akcentujący na górze kart (Blue / Red) */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--blue-team);
+            opacity: 0.7;
+        }
+
+        .project-card:nth-child(2)::before,
+        .project-card:nth-child(3)::before {
+            background: var(--red-team);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 210, 255, 0.45);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px var(--accent-glow);
+            transform: translateY(-6px);
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 22px var(--blue-glow);
+        }
+
+        .project-card:nth-child(2):hover,
+        .project-card:nth-child(3):hover {
+            border-color: rgba(255, 42, 95, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 22px var(--red-glow);
         }
 
         .project-card h3 {
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            margin-bottom: 14px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .project-card h3 i {
-            color: var(--accent);
+            color: var(--blue-team);
+        }
+
+        .project-card:nth-child(2) h3 i,
+        .project-card:nth-child(3) h3 i {
+            color: var(--red-team);
         }
 
         .project-card p {
             color: var(--text-muted);
-            font-size: 0.98rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 24px;
+            line-height: 1.65;
         }
 
         .project-list {
             list-style: none;
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 0.96rem;
+            margin-bottom: 24px;
         }
 
         .project-list li {
-            margin-bottom: 8px;
-            padding-left: 14px;
+            margin-bottom: 10px;
+            padding-left: 16px;
             position: relative;
+        }
+
+        .project-list li:last-child {
+            margin-bottom: 0;
         }
 
         .project-list li::before {
             content: '▹';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--blue-team);
         }
 
         .project-list b {
@@ -474,13 +611,13 @@
         }
 
         .tag {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 6px;
             background: rgba(255, 255, 255, 0.05);
             color: #cbd5e1;
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* Kontakt */
@@ -506,7 +643,7 @@
             align-items: center;
             gap: 10px;
             color: var(--text-main);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             text-decoration: none;
             background: var(--bg-card);
@@ -517,21 +654,26 @@
         }
 
         .contact a i {
-            color: var(--accent);
+            color: var(--blue-team);
             font-size: 1.25rem;
             transition: color 0.3s;
         }
 
-        .contact a:hover {
-            border-color: var(--accent);
-            background: var(--accent);
-            color: #0a0c10;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px var(--accent-glow);
+        .contact a:nth-child(2) i {
+            color: var(--red-team);
         }
 
-        .contact a:hover i {
-            color: #0a0c10;
+        .contact a:hover {
+            border-color: var(--blue-team);
+            background: rgba(0, 210, 255, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--blue-glow);
+        }
+
+        .contact a:nth-child(2):hover {
+            border-color: var(--red-team);
+            background: rgba(255, 42, 95, 0.12);
+            box-shadow: 0 8px 20px var(--red-glow);
         }
 
         /* Stopka */
@@ -556,6 +698,12 @@
         }
 
         /* Responsywność */
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 14px 6%;
@@ -564,7 +712,7 @@
                 display: none;
             }
             section {
-                padding: 75px 6%;
+                padding: 75px 5%;
             }
             .about-box {
                 padding: 25px;
@@ -572,8 +720,16 @@
             .timeline {
                 padding-left: 20px;
             }
+            .timeline .item {
+                padding: 20px;
+            }
             .timeline .item::before {
                 left: -29px;
+            }
+            .timeline .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
             }
         }
     </style>
@@ -582,12 +738,12 @@
 <body>
 
     <nav>
-        <a href="#" class="logo">Smola<span>S</span></a>
+        <a href="#" class="logo">Smola<span class="blue">S</span><span class="red">.</span></a>
         <ul>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#experience">Doświadczenie</a></li>
             <li><a href="#skills">Umiejętności</a></li>
-            <li><a href="#projects">Projekty</a></li>
+            <li><a href="#projects">Projekty akademickie</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
     </nav>
@@ -595,11 +751,14 @@
     <header>
         <div id="particles-js"></div>
         <div class="hero-content">
-            <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Network & Security</span>
+            <span class="hero-badge">
+                <i class="fa-solid fa-network-wired"></i> Network &amp; Security <i class="fa-solid fa-shield-halved"></i>
+            </span>
             <h1>Szymon Smoła</h1>
-            <p>Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH | Junior Network & Security Engineer</p>
+            <p class="subtitle">Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH</p>
+            <p class="role">Junior Network &amp; Security Engineer <span class="company">@ ASCOMP S.A.</span></p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code-branch"></i> Zobacz projekty</a>
+                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code-branch"></i> Projekty akademickie</a>
                 <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Kontakt</a>
             </div>
         </div>
@@ -612,11 +771,11 @@
         <section id="about" class="reveal">
             <h2>Kim jestem</h2>
             <div class="about-box">
-                <p>Jestem inżynierem Elektroniki i Telekomunikacji, studentem II stopnia na kierunku Teleinformatyka w AGH, a zawodowo rozwijam się jako <strong>Junior Network & Security Engineer</strong>. Moje główne obszary specjalizacji to nowoczesne sieci komputerowe oraz cyberbezpieczeństwo.</p>
+                <p>Jestem inżynierem Elektroniki i Telekomunikacji, studentem II stopnia na kierunku Teleinformatyka w AGH, a zawodowo rozwijam się jako <strong>Junior Network &amp; Security Engineer</strong> w firmie <strong>ASCOMP S.A.</strong> Moje główne obszary specjalizacji to nowoczesne sieci komputerowe oraz cyberbezpieczeństwo.</p>
                 
-                <p>Posiadam doświadczenie w konfiguracji i administracji sprzętem sieciowym (<em>Cisco, Juniper</em>) oraz w pracy z programowalnymi płaszczyznami danych (<em>P4</em>). Znam system <em>Linux</em> oraz środowiska związane z wirtualizacją i konteneryzacją (m.in. <em>Docker</em>). Aktywnie poszerzam swoje kompetencje w obszarze bezpieczeństwa IT – zajmuję się oceną podatności (<em>Qualys</em>) oraz pracuję z rozwiązaniami klasy EDR/XDR i NGFW, takimi jak <em>CrowdStrike</em>, <em>FortiEDR</em> czy ekosystem <em>Palo Alto Networks</em>.</p>
+                <p>Posiadam doświadczenie w konfiguracji i administracji sprzętem sieciowym (<em>Cisco, Juniper</em>) oraz w pracy z programowalnymi płaszczyznami danych (<em>P4</em>). Znam system <em>Linux</em> oraz środowiska związane z wirtualizacją i konteneryzacją (m.in. <em>Docker</em>). Aktywnie poszerzam swoje kompetencje w obszarze bezpieczeństwa IT – zajmuję się oceną podatności (<em class="red">Qualys</em>) oraz pracuję z rozwiązaniami klasy EDR/XDR i NGFW, takimi jak <em class="red">CrowdStrike</em>, <em class="red">FortiEDR</em> czy ekosystem <em class="red">Palo Alto Networks</em>.</p>
                 
-                <p>Moje zaplecze techniczne uzupełnia znajomość systemu kontroli wersji <em>Git</em>, podstawowa znajomość języków <em>C, C++</em> oraz <em>Python</em>, a także wcześniejsze doświadczenia z elektroniką i tworzeniem gier w silniku <em>Unity</em>.</p>
+                <p>Moje zaplecze techniczne uzupełnia znajomość systemu kontroli wersji <em>Git</em>, znajomość języków <em>C, C++</em> oraz <em>Python</em>, doświadczenie w symulacjach sieciowych (<em>ns-3</em>), a także wcześniejsze projekty związane z elektroniką oraz tworzeniem gier w silniku <em>Unity</em>.</p>
                 
                 <p>Biegle posługuję się językiem angielskim. Bardzo dobrze odnajduję się w pracy zespołowej, również w dynamicznym środowisku międzynarodowym.</p>
                 
@@ -629,10 +788,10 @@
             <div class="timeline">
                 <div class="item">
                     <div class="item-header">
-                        <h3><i class="fa-solid fa-shield-halved"></i> Junior Network & Security Engineer</h3>
+                        <h3><i class="fa-solid fa-shield-halved"></i> Junior Network &amp; Security Engineer – ASCOMP S.A.</h3>
                         <span class="date-badge">2026 – obecnie</span>
                     </div>
-                    <p>Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. <em>Palo Alto Networks, CrowdStrike, Qualys, FortiEDR</em>).</p>
+                    <p>Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. <em>Palo Alto Networks</em>, <em class="red">CrowdStrike</em>, <em class="red">Qualys</em>, <em class="red">FortiEDR</em>).</p>
                 </div>
 
                 <div class="item">
@@ -646,9 +805,9 @@
                 <div class="item">
                     <div class="item-header">
                         <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
-                        <span class="date-badge">2024 – obecnie</span>
+                        <span class="date-badge">2024 – 2026</span>
                     </div>
-                    <p>Praca nad grą <em>Emperor</em>, Game Design, Game Development w silniku <em>Unity</em>. Rozwój modyfikacji w narzędziu REDkit w ramach zespołu Digitsy.</p>
+                    <p>Praca nad grą <em>Emperor</em>, Game Design, Game Development w silniku <em>Unity</em>. Rozwój modyfikacji do gry Wiedźmin 3 w narzędziu <em class="red">REDkit</em> w ramach zespołu Digitsy.</p>
                 </div>
 
                 <div class="item">
@@ -670,22 +829,23 @@
                 <div class="skill"><i class="fa-solid fa-shield-virus"></i> FortiEDR</div>
                 <div class="skill"><i class="fa-solid fa-magnifying-glass-chart"></i> Qualys</div>
                 <div class="skill"><i class="fa-brands fa-linux"></i> Linux</div>
-                <div class="skill"><i class="fa-brands fa-docker"></i> Wirtualizacja & Docker</div>
+                <div class="skill"><i class="fa-brands fa-docker"></i> Wirtualizacja &amp; Docker</div>
                 <div class="skill"><i class="fa-solid fa-microchip"></i> P4 (Programmable Data Planes)</div>
+                <div class="skill"><i class="fa-solid fa-tower-broadcast"></i> Symulacje sieciowe (ns-3)</div>
                 <div class="skill"><i class="fa-brands fa-python"></i> Python</div>
                 <div class="skill"><i class="fa-solid fa-code"></i> C / C++</div>
                 <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
-                <div class="skill"><i class="fa-brands fa-unity"></i> Unity</div>
             </div>
         </section>
 
         <section id="projects" class="reveal">
-            <h2>Projekty</h2>
+            <h2>Projekty akademickie</h2>
             <div class="projects-grid">
+                <!-- Karta 1: Praca inżynierska -->
                 <div class="project-card">
                     <div>
-                        <h3><i class="fa-solid fa-diagram-project"></i> Load Balancing w P4</h3>
-                        <p>Praca inżynierska obejmująca projekt i implementację algorytmów równoważenia obciążenia w programowalnej płaszczyźnie danych. Analiza wydajności pod kątem przepustowości, opóźnień i zmiany kolejności pakietów.</p>
+                        <h3><i class="fa-solid fa-diagram-project"></i> Praca inżynierska: Load Balancing w P4</h3>
+                        <p>Projekt, implementacja i ewaluacja wydajności algorytmów równoważenia obciążenia w programowalnej płaszczyźnie danych (język <em>P4</em>). Analiza przepustowości, opóźnień oraz zmiany kolejności pakietów w środowisku opartym o <em>BMv2, Mininet i Docker</em>.</p>
                     </div>
                     <div class="tags">
                         <span class="tag">P4</span>
@@ -696,46 +856,53 @@
                     </div>
                 </div>
 
+                <!-- Karta 2: VoIP QoS Wi-Fi 5/6/7 -->
                 <div class="project-card">
                     <div>
-                        <h3><i class="fa-solid fa-server"></i> Centralizacja logów – ELK Stack</h3>
-                        <p>Wdrożenie środowiska do zbierania, parsowania oraz wizualizacji logów i zdarzeń z <em>urządzeń sieciowych</em> w czasie rzeczywistym.</p>
+                        <h3><i class="fa-solid fa-wifi"></i> Analiza QoS ruchu VoIP w sieciach Wi-Fi 5/6/7</h3>
+                        <p>Współtworzenie architektury symulacyjnej w środowisku <em class="red">ns-3</em> służącej do badania wydajności i jakości usług (QoS) dla ruchu VoIP czasu rzeczywistego w gęstych sieciach bezprzewodowych <em>802.11ac, 802.11ax</em> oraz <em>802.11be</em>.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">Elasticsearch</span>
-                        <span class="tag">Logstash</span>
-                        <span class="tag">Kibana</span>
-                        <span class="tag">Syslog</span>
+                        <span class="tag">ns-3</span>
+                        <span class="tag">Wi-Fi 5/6/7</span>
+                        <span class="tag">802.11be</span>
+                        <span class="tag">VoIP &amp; QoS</span>
+                        <span class="tag">C++</span>
                     </div>
                 </div>
 
+                <!-- Karta 3: Edge-Based Visual Inference Study -->
                 <div class="project-card">
                     <div>
-                        <h3><i class="fa-solid fa-dragon"></i> Modyfikacja do Wiedźmina 3</h3>
-                        <p>Projekt zespołowy rozszerzający świat gry o nowe <em>elementy fabularne i mechaniki rozgrywki</em> z wykorzystaniem oficjalnego edytora REDkit.</p>
+                        <h3><i class="fa-solid fa-eye"></i> Edge-Based Visual Inference (Project Lead)</h3>
+                        <p>Kierowanie 6-osobowym zespołem badawczym analizującym kompromisy pomiędzy stopniem kompresji wideo <em class="red">H.264</em> oraz skalowaniem przestrzennym a skutecznością detekcji obiektów przez model <em class="red">YOLOv8n</em> transmitowanych przez łącza bezprzewodowe.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">REDkit</span>
-                        <span class="tag">Game Design</span>
-                        <span class="tag">Teamwork</span>
+                        <span class="tag">Project Lead</span>
+                        <span class="tag">YOLOv8n</span>
+                        <span class="tag">H.264</span>
+                        <span class="tag">Wireless Links</span>
+                        <span class="tag">Python</span>
                     </div>
                 </div>
 
+                <!-- Karta 4: Projekty przedmiotowe -->
                 <div class="project-card">
                     <div>
-                        <h3><i class="fa-solid fa-laptop-code"></i> Projekty akademickie i sprzętowe</h3>
+                        <h3><i class="fa-solid fa-laptop-code"></i> Projekty przedmiotowe</h3>
                         <ul class="project-list">
-                            <li><b>Programowanie obiektowe:</b> Biblioteka bufora okrężnego w <em>C++</em></li>
-                            <li><b>Design Lab:</b> Sprzęgacz kierunkowy w topologii pierścieniowej</li>
-                            <li><b>Mikroprocesory 2:</b> System zamka z enkoderem obrotowym w <em>C</em></li>
-                            <li><b>Mikroprocesory 1:</b> Dekoder i odbiornik kodu Morse’a w <em>C++</em></li>
+                            <li><b>Gra sieciowa „Hangman”:</b> Wieloosobowa gra klient-serwer wykorzystująca gniazda sieciowe (<em>C network sockets</em>)</li>
+                            <li><b>Design Lab:</b> Projekt sprzęgacza pierścieniowego (<em>Rat-race coupler</em>) w topologii pierścieniowej</li>
+                            <li><b>Centralizacja logów (ELK Stack):</b> Zbieranie i parsowanie logów z <em>urządzeń sieciowych</em></li>
+                            <li><b>Programowanie &amp; Embedded:</b> Bufor okrężny i odbiornik kodu Morse’a w <em>C++</em>, zamek z enkoderem w <em>C</em></li>
                         </ul>
                     </div>
                     <div class="tags">
-                        <span class="tag">C</span>
-                        <span class="tag">C++</span>
+                        <span class="tag">C Sockets</span>
+                        <span class="tag">C / C++</span>
+                        <span class="tag">ELK Stack</span>
+                        <span class="tag">RF / Design Lab</span>
                         <span class="tag">Embedded</span>
-                        <span class="tag">RF / Elektronika</span>
                     </div>
                 </div>
             </div>
@@ -767,18 +934,18 @@
         // Aktualny rok w stopce
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Konfiguracja Particles.js (motyw sieciowy)
+        // Konfiguracja Particles.js (Red Team & Blue Team)
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 65, "density": { "enable": true, "value_area": 900 } },
-                "color": { "value": "#00d2ff" },
-                "opacity": { "value": 0.4, "random": true },
-                "size": { "value": 2.5, "random": true },
+                "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
+                "color": { "value": ["#00d2ff", "#ff2a5f"] },
+                "opacity": { "value": 0.45, "random": true },
+                "size": { "value": 2.8, "random": true },
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#00d2ff",
-                    "opacity": 0.2,
+                    "color": "#3a7bd5",
+                    "opacity": 0.22,
                     "width": 1
                 },
                 "move": {
