@@ -20,9 +20,9 @@
 
     <style>
         :root {
-            --bg-main: #090b10;
-            --bg-card: rgba(18, 22, 31, 0.8);
-            --bg-card-hover: rgba(25, 31, 44, 0.95);
+            --bg-main: #080a0f;
+            --bg-card: rgba(16, 20, 29, 0.78);
+            --bg-card-hover: rgba(22, 28, 40, 0.95);
             
             /* Kolory Red Team & Blue Team */
             --blue-team: #00d2ff;
@@ -30,8 +30,8 @@
             --red-team: #ff2a5f;
             --red-dark: #e11d48;
             
-            --blue-glow: rgba(0, 210, 255, 0.18);
-            --red-glow: rgba(255, 42, 95, 0.18);
+            --blue-glow: rgba(0, 210, 255, 0.22);
+            --red-glow: rgba(255, 42, 95, 0.22);
             
             --text-main: #f0f6fc;
             --text-muted: #9ca3af;
@@ -48,12 +48,16 @@
             scroll-behavior: smooth;
         }
 
+        /* Tło strony: lewa strona niebieskawa, prawa czerwonawa */
         body {
             font-family: 'Raleway', sans-serif;
-            background: var(--bg-main);
+            background-color: var(--bg-main);
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(255, 42, 95, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 0% 30%, rgba(0, 210, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 0% 80%, rgba(37, 99, 235, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 100% 30%, rgba(255, 42, 95, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 100% 80%, rgba(225, 29, 72, 0.10) 0%, transparent 50%),
+                linear-gradient(90deg, rgba(0, 210, 255, 0.04) 0%, transparent 50%, rgba(255, 42, 95, 0.04) 100%);
             background-attachment: fixed;
             color: var(--text-main);
             overflow-x: hidden;
@@ -83,7 +87,7 @@
         em {
             font-style: normal;
             color: var(--blue-team);
-            font-weight: 400;
+            font-weight: 500;
         }
 
         em.red {
@@ -99,7 +103,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(9, 11, 16, 0.82);
+            background: rgba(8, 10, 15, 0.82);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
@@ -151,8 +155,8 @@
             text-align: center;
             padding: 0 20px;
             background: 
-                radial-gradient(circle at 35% 45%, rgba(0, 210, 255, 0.08) 0%, transparent 55%),
-                radial-gradient(circle at 65% 55%, rgba(255, 42, 95, 0.08) 0%, transparent 55%);
+                radial-gradient(circle at 20% 50%, rgba(0, 210, 255, 0.11) 0%, transparent 55%),
+                radial-gradient(circle at 80% 50%, rgba(255, 42, 95, 0.11) 0%, transparent 55%);
         }
 
         #particles-js {
@@ -168,15 +172,16 @@
             z-index: 2;
             position: relative;
             max-width: 900px;
+            width: 100%;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 18px;
+            gap: 10px;
+            padding: 6px 20px;
             border-radius: 20px;
-            background: linear-gradient(90deg, rgba(0, 210, 255, 0.12), rgba(255, 42, 95, 0.12));
+            background: linear-gradient(90deg, rgba(0, 210, 255, 0.14), rgba(255, 42, 95, 0.14));
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-main);
             font-size: 0.85rem;
@@ -198,7 +203,7 @@
             font-size: clamp(2.6rem, 6vw, 4.4rem);
             letter-spacing: -0.5px;
             margin-bottom: 16px;
-            background: linear-gradient(90deg, #ffffff 0%, #dbeafe 50%, #ffe4e6 100%);
+            background: linear-gradient(90deg, #e0f7ff 0%, #ffffff 50%, #ffe0e9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -206,46 +211,48 @@
         header .subtitle {
             font-size: clamp(1.05rem, 2.3vw, 1.28rem);
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
+        /* Cały tytuł pracy w gradiencie */
         header .role {
-            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-            color: var(--text-main);
-            font-weight: 600;
-            margin-bottom: 35px;
-        }
-
-        header .role .company {
-            background: linear-gradient(90deg, var(--blue-team), var(--red-team));
+            font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 38px;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--blue-team) 0%, #7aa2f7 45%, var(--red-team) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
         }
 
+        /* Symetryczne przyciski na środku */
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 13px 28px;
-            border-radius: 8px;
+            width: 235px;
+            padding: 14px 20px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 9px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--blue-team), var(--blue-dark));
-            color: #090b10;
+            color: #080a0f;
             box-shadow: 0 4px 18px rgba(0, 210, 255, 0.3);
+            border: 1px solid transparent;
         }
 
         .btn-primary:hover {
@@ -254,21 +261,23 @@
         }
 
         .btn-outline {
-            background: rgba(255, 42, 95, 0.08);
+            background: linear-gradient(135deg, rgba(255, 42, 95, 0.15), rgba(225, 29, 72, 0.08));
             color: var(--text-main);
-            border: 1px solid rgba(255, 42, 95, 0.4);
+            border: 1px solid rgba(255, 42, 95, 0.5);
+            box-shadow: 0 4px 18px rgba(255, 42, 95, 0.15);
         }
 
         .btn-outline i {
             color: var(--red-team);
+            transition: color 0.3s;
         }
 
         .btn-outline:hover {
-            background: var(--red-team);
+            background: linear-gradient(135deg, var(--red-team), var(--red-dark));
             border-color: var(--red-team);
             color: #ffffff;
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(255, 42, 95, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 42, 95, 0.45);
         }
 
         .btn-outline:hover i {
@@ -296,7 +305,7 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* Sekcje ogólne - poszerzone dla symetrii */
+        /* Sekcje ogólne */
         section {
             padding: 100px 6%;
             max-width: 1240px;
@@ -313,7 +322,7 @@
         section h2::after {
             content: '';
             display: block;
-            width: 70px;
+            width: 80px;
             height: 3px;
             background: linear-gradient(90deg, var(--blue-team), var(--red-team));
             margin: 12px auto 0;
@@ -330,6 +339,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .about-box::before {
@@ -352,12 +362,16 @@
             margin-bottom: 0;
         }
 
-        /* Doświadczenie / Timeline */
+        /* Doświadczenie / Timeline - 2 górne niebieskie, 2 dolne czerwone */
+        .timeline-wrapper {
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
         .timeline {
             border-left: 2px solid;
-            border-image: linear-gradient(to bottom, var(--blue-team), var(--red-team)) 1;
+            border-image: linear-gradient(to bottom, var(--blue-team) 0%, var(--blue-team) 48%, var(--red-team) 52%, var(--red-team) 100%) 1;
             padding-left: 32px;
-            margin-left: 10px;
         }
 
         .timeline .item {
@@ -374,20 +388,14 @@
             margin-bottom: 0;
         }
 
-        .timeline .item:nth-child(odd):hover {
+        /* 2 górne elementy - NIEBIESKIE */
+        .timeline .item:nth-child(-n+2):hover {
             transform: translateX(6px);
-            border-color: rgba(0, 210, 255, 0.45);
+            border-color: rgba(0, 210, 255, 0.5);
             box-shadow: 0 8px 25px var(--blue-glow);
         }
 
-        .timeline .item:nth-child(even):hover {
-            transform: translateX(6px);
-            border-color: rgba(255, 42, 95, 0.45);
-            box-shadow: 0 8px 25px var(--red-glow);
-        }
-
-        /* Kropka na osi czasu (naprzemiennie Blue / Red) */
-        .timeline .item::before {
+        .timeline .item:nth-child(-n+2)::before {
             content: '';
             position: absolute;
             left: -41px;
@@ -400,12 +408,46 @@
             box-shadow: 0 0 10px var(--blue-team);
         }
 
-        .timeline .item:nth-child(even)::before {
-            border-color: var(--red-team);
+        .timeline .item:nth-child(-n+2) h3 i {
+            color: var(--blue-team);
+        }
+
+        .timeline .item:nth-child(-n+2) .date-badge {
+            color: var(--blue-team);
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        /* 2 dolne elementy - CZERWONE */
+        .timeline .item:nth-child(n+3):hover {
+            transform: translateX(6px);
+            border-color: rgba(255, 42, 95, 0.5);
+            box-shadow: 0 8px 25px var(--red-glow);
+        }
+
+        .timeline .item:nth-child(n+3)::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            border: 3px solid var(--red-team);
             box-shadow: 0 0 10px var(--red-team);
         }
 
-        /* Naprawiony nagłówek elementu osi czasu (brak rozjazdu!) */
+        .timeline .item:nth-child(n+3) h3 i {
+            color: var(--red-team);
+        }
+
+        .timeline .item:nth-child(n+3) .date-badge {
+            color: var(--red-team);
+            background: rgba(255, 42, 95, 0.1);
+            border: 1px solid rgba(255, 42, 95, 0.3);
+        }
+
         .timeline .item-header {
             display: flex;
             justify-content: space-between;
@@ -423,30 +465,13 @@
             gap: 12px;
         }
 
-        .timeline .item:nth-child(odd) h3 i {
-            color: var(--blue-team);
-        }
-
-        .timeline .item:nth-child(even) h3 i {
-            color: var(--red-team);
-        }
-
         .timeline .date-badge {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--blue-team);
-            background: rgba(0, 210, 255, 0.1);
             padding: 5px 14px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 210, 255, 0.25);
             white-space: nowrap;
             flex-shrink: 0;
-        }
-
-        .timeline .item:nth-child(even) .date-badge {
-            color: var(--red-team);
-            background: rgba(255, 42, 95, 0.1);
-            border-color: rgba(255, 42, 95, 0.25);
         }
 
         .timeline .item p {
@@ -454,53 +479,62 @@
             color: var(--text-muted);
         }
 
-        /* Umiejętności */
+        /* Umiejętności - symetryczna siatka 3x4 i gradienty */
         .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
         .skill {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 13px 22px;
-            border-radius: 10px;
-            font-size: 0.98rem;
-            font-weight: 400;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.07) 0%, rgba(16, 20, 29, 0.85) 50%, rgba(255, 42, 95, 0.07) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            text-align: center;
+            gap: 12px;
             transition: all 0.3s ease;
             cursor: default;
+            position: relative;
+            overflow: hidden;
         }
 
-        .skill:nth-child(odd) i {
-            color: var(--blue-team);
-            font-size: 1.15rem;
+        .skill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue-team), var(--red-team));
+            opacity: 0.6;
+            transition: opacity 0.3s;
         }
 
-        .skill:nth-child(even) i {
-            color: var(--red-team);
-            font-size: 1.15rem;
+        .skill i {
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--blue-team), var(--red-team));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .skill:nth-child(odd):hover {
+        .skill:hover {
             transform: translateY(-5px);
-            border-color: var(--blue-team);
-            background: var(--bg-card-hover);
-            box-shadow: 0 6px 20px var(--blue-glow);
+            border-color: rgba(0, 210, 255, 0.4);
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.14) 0%, rgba(22, 28, 40, 0.95) 50%, rgba(255, 42, 95, 0.14) 100%);
+            box-shadow: -6px 6px 20px rgba(0, 210, 255, 0.15), 6px 6px 20px rgba(255, 42, 95, 0.15);
         }
 
-        .skill:nth-child(even):hover {
-            transform: translateY(-5px);
-            border-color: var(--red-team);
-            background: var(--bg-card-hover);
-            box-shadow: 0 6px 20px var(--red-glow);
+        .skill:hover::before {
+            opacity: 1;
         }
 
-        /* Projekty akademickie - symetryczna siatka 2x2 */
+        /* Projekty akademickie - symetryczna siatka 2x2 (lewa kolumna niebieska, prawa czerwona) */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -521,32 +555,45 @@
             overflow: hidden;
         }
 
-        /* Pasek akcentujący na górze kart (Blue / Red) */
-        .project-card::before {
+        /* Lewa kolumna kart (1 i 3) - Niebieska */
+        .project-card:nth-child(odd)::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--blue-team);
-            opacity: 0.7;
+            background: linear-gradient(90deg, var(--blue-team), var(--blue-dark));
         }
 
-        .project-card:nth-child(2)::before,
-        .project-card:nth-child(3)::before {
-            background: var(--red-team);
+        .project-card:nth-child(odd) h3 i {
+            color: var(--blue-team);
         }
 
-        .project-card:hover {
+        .project-card:nth-child(odd):hover {
             transform: translateY(-6px);
-            border-color: rgba(0, 210, 255, 0.4);
+            border-color: rgba(0, 210, 255, 0.45);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 22px var(--blue-glow);
         }
 
-        .project-card:nth-child(2):hover,
-        .project-card:nth-child(3):hover {
-            border-color: rgba(255, 42, 95, 0.4);
+        /* Prawa kolumna kart (2 i 4) - Czerwona */
+        .project-card:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red-team), var(--red-dark));
+        }
+
+        .project-card:nth-child(even) h3 i {
+            color: var(--red-team);
+        }
+
+        .project-card:nth-child(even):hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 42, 95, 0.45);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 22px var(--red-glow);
         }
 
@@ -556,15 +603,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-
-        .project-card h3 i {
-            color: var(--blue-team);
-        }
-
-        .project-card:nth-child(2) h3 i,
-        .project-card:nth-child(3) h3 i {
-            color: var(--red-team);
         }
 
         .project-card p {
@@ -595,7 +633,7 @@
             content: '▹';
             position: absolute;
             left: 0;
-            color: var(--blue-team);
+            color: var(--red-team);
         }
 
         .project-list b {
@@ -635,45 +673,37 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 18px;
         }
 
         .contact a {
+            min-width: 240px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             color: var(--text-main);
             font-size: 1.05rem;
             font-weight: 600;
             text-decoration: none;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 14px 28px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(255, 42, 95, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 15px 28px;
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .contact a i {
-            color: var(--blue-team);
+            background: linear-gradient(135deg, var(--blue-team), var(--red-team));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 1.25rem;
-            transition: color 0.3s;
-        }
-
-        .contact a:nth-child(2) i {
-            color: var(--red-team);
         }
 
         .contact a:hover {
             border-color: var(--blue-team);
-            background: rgba(0, 210, 255, 0.12);
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px var(--blue-glow);
-        }
-
-        .contact a:nth-child(2):hover {
-            border-color: var(--red-team);
-            background: rgba(255, 42, 95, 0.12);
-            box-shadow: 0 8px 20px var(--red-glow);
+            box-shadow: -5px 6px 20px var(--blue-glow), 5px 6px 20px var(--red-glow);
         }
 
         /* Stopka */
@@ -698,7 +728,10 @@
         }
 
         /* Responsywność */
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -717,13 +750,17 @@
             .about-box {
                 padding: 25px;
             }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
             .timeline {
                 padding-left: 20px;
             }
             .timeline .item {
                 padding: 20px;
             }
-            .timeline .item::before {
+            .timeline .item:nth-child(-n+2)::before,
+            .timeline .item:nth-child(n+3)::before {
                 left: -29px;
             }
             .timeline .item-header {
@@ -756,7 +793,7 @@
             </span>
             <h1>Szymon Smoła</h1>
             <p class="subtitle">Inżynier Elektroniki i Telekomunikacji | Student Teleinformatyki @ AGH</p>
-            <p class="role">Junior Network &amp; Security Engineer <span class="company">@ ASCOMP S.A.</span></p>
+            <p class="role">Junior Network &amp; Security Engineer @ ASCOMP S.A.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code-branch"></i> Projekty akademickie</a>
                 <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Kontakt</a>
@@ -785,37 +822,43 @@
 
         <section id="experience" class="experience reveal">
             <h2>Doświadczenie</h2>
-            <div class="timeline">
-                <div class="item">
-                    <div class="item-header">
-                        <h3><i class="fa-solid fa-shield-halved"></i> Junior Network &amp; Security Engineer – ASCOMP S.A.</h3>
-                        <span class="date-badge">2026 – obecnie</span>
+            <div class="timeline-wrapper">
+                <div class="timeline">
+                    <!-- 1: Niebieski -->
+                    <div class="item">
+                        <div class="item-header">
+                            <h3><i class="fa-solid fa-shield-halved"></i> Junior Network &amp; Security Engineer – ASCOMP S.A.</h3>
+                            <span class="date-badge">2026 – obecnie</span>
+                        </div>
+                        <p>Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. <em>Palo Alto Networks</em>, <em class="red">CrowdStrike</em>, <em class="red">Qualys</em>, <em class="red">FortiEDR</em>).</p>
                     </div>
-                    <p>Rozwój w obszarze nowoczesnych sieci komputerowych, cyberbezpieczeństwa, oceny podatności oraz administracji rozwiązaniami klasy Enterprise (m.in. <em>Palo Alto Networks</em>, <em class="red">CrowdStrike</em>, <em class="red">Qualys</em>, <em class="red">FortiEDR</em>).</p>
-                </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <h3><i class="fa-solid fa-network-wired"></i> Praktykant IT – ASCOMP S.A.</h3>
-                        <span class="date-badge">2025</span>
+                    <!-- 2: Niebieski -->
+                    <div class="item">
+                        <div class="item-header">
+                            <h3><i class="fa-solid fa-network-wired"></i> Praktykant IT – ASCOMP S.A.</h3>
+                            <span class="date-badge">2025</span>
+                        </div>
+                        <p>Projektowanie i konfiguracja sieci, praca z kontenerami <em>Docker</em> oraz wdrażanie i utrzymanie systemów monitoringu.</p>
                     </div>
-                    <p>Projektowanie i konfiguracja sieci, praca z kontenerami <em>Docker</em> oraz wdrażanie i utrzymanie systemów monitoringu.</p>
-                </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
-                        <span class="date-badge">2024 – 2026</span>
+                    <!-- 3: Czerwony -->
+                    <div class="item">
+                        <div class="item-header">
+                            <h3><i class="fa-solid fa-gamepad"></i> Game Developer – AGH Code Industry</h3>
+                            <span class="date-badge">2024 – 2026</span>
+                        </div>
+                        <p>Praca nad grą <em class="red">Emperor</em>, Game Design, Game Development w silniku <em class="red">Unity</em>. Rozwój modyfikacji do gry Wiedźmin 3 w narzędziu <em class="red">REDkit</em> w ramach zespołu Digitsy.</p>
                     </div>
-                    <p>Praca nad grą <em>Emperor</em>, Game Design, Game Development w silniku <em>Unity</em>. Rozwój modyfikacji do gry Wiedźmin 3 w narzędziu <em class="red">REDkit</em> w ramach zespołu Digitsy.</p>
-                </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <h3><i class="fa-solid fa-life-ring"></i> Ratownik Wodny – Basen AGH / WOPR Zamość</h3>
-                        <span class="date-badge">2021 – 2026</span>
+                    <!-- 4: Czerwony -->
+                    <div class="item">
+                        <div class="item-header">
+                            <h3><i class="fa-solid fa-life-ring"></i> Ratownik Wodny – Basen AGH / WOPR Zamość</h3>
+                            <span class="date-badge">2021 – 2026</span>
+                        </div>
+                        <p>Odpowiedzialność za bezpieczeństwo w wodzie, obsługa AED, kwalifikowana pierwsza pomoc oraz ścisła praca zespołowa w sytuacjach kryzysowych.</p>
                     </div>
-                    <p>Odpowiedzialność za bezpieczeństwo w wodzie, obsługa AED, kwalifikowana pierwsza pomoc oraz ścisła praca zespołowa w sytuacjach kryzysowych.</p>
                 </div>
             </div>
         </section>
@@ -841,7 +884,7 @@
         <section id="projects" class="reveal">
             <h2>Projekty akademickie</h2>
             <div class="projects-grid">
-                <!-- Karta 1: Praca inżynierska -->
+                <!-- Karta 1 (Lewa - Niebieska): Praca inżynierska -->
                 <div class="project-card">
                     <div>
                         <h3><i class="fa-solid fa-diagram-project"></i> Praca inżynierska: Load Balancing w P4</h3>
@@ -856,11 +899,11 @@
                     </div>
                 </div>
 
-                <!-- Karta 2: VoIP QoS Wi-Fi 5/6/7 -->
+                <!-- Karta 2 (Prawa - Czerwona): VoIP QoS Wi-Fi 5/6/7 -->
                 <div class="project-card">
                     <div>
                         <h3><i class="fa-solid fa-wifi"></i> Analiza QoS ruchu VoIP w sieciach Wi-Fi 5/6/7</h3>
-                        <p>Współtworzenie architektury symulacyjnej w środowisku <em class="red">ns-3</em> służącej do badania wydajności i jakości usług (QoS) dla ruchu VoIP czasu rzeczywistego w gęstych sieciach bezprzewodowych <em>802.11ac, 802.11ax</em> oraz <em>802.11be</em>.</p>
+                        <p>Współtworzenie architektury symulacyjnej w środowisku <em class="red">ns-3</em> służącej do badania wydajności i jakości usług (QoS) dla ruchu VoIP czasu rzeczywistego w gęstych sieciach bezprzewodowych <em class="red">802.11ac, 802.11ax</em> oraz <em class="red">802.11be</em>.</p>
                     </div>
                     <div class="tags">
                         <span class="tag">ns-3</span>
@@ -871,11 +914,11 @@
                     </div>
                 </div>
 
-                <!-- Karta 3: Edge-Based Visual Inference Study -->
+                <!-- Karta 3 (Lewa - Niebieska): Edge-Based Visual Inference Study -->
                 <div class="project-card">
                     <div>
                         <h3><i class="fa-solid fa-eye"></i> Edge-Based Visual Inference (Project Lead)</h3>
-                        <p>Kierowanie 6-osobowym zespołem badawczym analizującym kompromisy pomiędzy stopniem kompresji wideo <em class="red">H.264</em> oraz skalowaniem przestrzennym a skutecznością detekcji obiektów przez model <em class="red">YOLOv8n</em> transmitowanych przez łącza bezprzewodowe.</p>
+                        <p>Kierowanie 6-osobowym zespołem badawczym analizującym kompromisy pomiędzy stopniem kompresji wideo <em>H.264</em> oraz skalowaniem przestrzennym a skutecznością detekcji obiektów przez model <em>YOLOv8n</em> transmitowanych przez łącza bezprzewodowe.</p>
                     </div>
                     <div class="tags">
                         <span class="tag">Project Lead</span>
@@ -886,15 +929,15 @@
                     </div>
                 </div>
 
-                <!-- Karta 4: Projekty przedmiotowe -->
+                <!-- Karta 4 (Prawa - Czerwona): Projekty przedmiotowe -->
                 <div class="project-card">
                     <div>
                         <h3><i class="fa-solid fa-laptop-code"></i> Projekty przedmiotowe</h3>
                         <ul class="project-list">
-                            <li><b>Gra sieciowa „Hangman”:</b> Wieloosobowa gra klient-serwer wykorzystująca gniazda sieciowe (<em>C network sockets</em>)</li>
-                            <li><b>Design Lab:</b> Projekt sprzęgacza pierścieniowego (<em>Rat-race coupler</em>) w topologii pierścieniowej</li>
-                            <li><b>Centralizacja logów (ELK Stack):</b> Zbieranie i parsowanie logów z <em>urządzeń sieciowych</em></li>
-                            <li><b>Programowanie &amp; Embedded:</b> Bufor okrężny i odbiornik kodu Morse’a w <em>C++</em>, zamek z enkoderem w <em>C</em></li>
+                            <li><b>Gra sieciowa „Hangman”:</b> Wieloosobowa gra klient-serwer wykorzystująca gniazda sieciowe (<em class="red">C network sockets</em>)</li>
+                            <li><b>Design Lab:</b> Projekt sprzęgacza pierścieniowego (<em class="red">Rat-race coupler</em>) w topologii pierścieniowej</li>
+                            <li><b>Centralizacja logów (ELK Stack):</b> Zbieranie i parsowanie logów z <em class="red">urządzeń sieciowych</em></li>
+                            <li><b>Programowanie &amp; Embedded:</b> Bufor okrężny i odbiornik kodu Morse’a w <em class="red">C++</em>, zamek z enkoderem w <em class="red">C</em></li>
                         </ul>
                     </div>
                     <div class="tags">
